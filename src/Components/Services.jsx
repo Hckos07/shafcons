@@ -1,19 +1,15 @@
-import gallery8 from "../assets/gallery-8.jpg";
-import lt from "../assets/lt.jpg";
-import electrans from "../assets/elec-trans.jpg";
-
 const services = [
   {
     title: "Electrical Panels",
-    image: { lt }, 
+    image: "/lt.jpg", 
   },
   {
     title: "Electrical Transformers",
-    image: {electrans},
+    image: "/elec-trans.jpg",
   },
   {
     title: "Silent Generator",
-    image: { gallery8 },
+    image: "/gallery-8.jpg",
   },
 ];
 
@@ -30,14 +26,19 @@ const Services = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {services.map((service, index) => (
-          <div key={index} className="bg-white shadow-lg rounded-md overflow-hidden">
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded-md overflow-hidden"
+          >
             <img
               src={service.image}
               alt={service.title}
               className="w-full h-96 object-cover"
             />
             <div className="bg-blue-50 py-4">
-              <h3 className="text-xl font-bold text-gray-800">{service.title}</h3>
+              <h3 className="text-xl font-bold text-gray-800">
+                {service.title}
+              </h3>
             </div>
           </div>
         ))}

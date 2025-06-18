@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import certificate1 from "../assets/certificate-1.jpg";
-import certificate2 from "../assets/certificate-2.jpeg";
 
 const Appreciations = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const certificates = [
-    { title: "Jakson", img: certificate1 },
-    { title: "T Power", img: certificate2 },
+    { title: "Jakson", img: "/certificate-1.jpg" },
+    { title: "T Power", img: "/certificate-2.jpeg" },
   ];
 
   return (

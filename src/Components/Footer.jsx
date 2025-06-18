@@ -1,9 +1,4 @@
-import {
-  Facebook,
-  Twitter,
-  Linkedin,
-  Instagram,
-} from "lucide-react";
+import { Twitter, Facebook, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -90,6 +85,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
+
+      {/* Footer Bottom */}
       <div className="border-t border-white mt-12 pt-4 text-center text-sm text-white">
         © {new Date().getFullYear()} Shafcons. All rights reserved.
       </div>

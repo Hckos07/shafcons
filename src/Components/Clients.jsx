@@ -1,13 +1,41 @@
 import { motion } from "framer-motion";
-import team1 from "../assets/team-1.jpg";
-import team2 from "../assets/team-2.jpg";
-import team3 from "../assets/team-3.jpg";
-import team4 from "../assets/team-4.jpg";
 
 const OurClients = () => {
+
+
+  const clients = [
+    {
+      name: "Indian Oil",
+      image: "/team-1.jpg",
+      description:
+        "Indian Oil Corporation Limited is an Indian government-owned oil and gas explorer and producer, headquartered in New Delhi",
+      direction: "left",
+    },
+    {
+      name: "State Bank of India",
+      image: "/team-2.jpg",
+      description:
+        "State Bank of India is an Indian multinational public sector bank and financial services statutory body headquartered in Mumbai, Maharashtra",
+      direction: "right",
+    },
+    {
+      name: "Bata Shoes",
+      image: "/team-3.jpg",
+      description:
+        "The Bata Corporation is a multinational footwear, apparel and fashion accessories manufacturer and retailer of Moravian origin, headquartered in Lausanne, Switzerland.",
+      direction: "left",
+    },
+    {
+      name: "Bharat Petroleum",
+      image: "/team-4.jpg",
+      description:
+        "Bharat Petroleum Corporation Limited is an Indian government-owned oil and gas explorer and producer, headquartered in Mumbai. It operates three refineries in Bina, Kochi and Mumbai.",
+      direction: "right",
+    },
+  ];
+
   return (
     <section className="py-20 bg-white" id="clients">
-      {/* Header */}
       <div className="text-center mb-14">
         <motion.h4
           initial={{ opacity: 0, y: -10 }}
@@ -17,7 +45,6 @@ const OurClients = () => {
         >
           TEAM
         </motion.h4>
-
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -26,7 +53,6 @@ const OurClients = () => {
         >
           Our Clients
         </motion.h2>
-
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
@@ -35,95 +61,51 @@ const OurClients = () => {
         />
       </div>
 
-      {/* Reviews */}
       <div className="max-w-7xl mx-auto px-6 flex flex-col gap-12">
-        {/* Client 1 - Left */}
-        <motion.div
-          className="flex items-center justify-start gap-4"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.img
-            src={team1}
-            alt="Indian Oil"
-            className="w-64 h-64 rounded-full border-4 border-dashed border-gray-300 object-contain"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-          <div className="bg-blue-50 p-8 rounded-lg w-[400px] shadow-md">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Indian Oil</h3>
-            <p className="text-gray-700 text-base leading-relaxed">
-              Indian Oil Corporation Limited is an Indian government-owned oil and gas explorer and producer, headquartered in New Delhi
-            </p>
-          </div>
-        </motion.div>
+        {clients.map((client, index) => {
+          const isRight = client.direction === "right";
 
-        {/* Client 2 - Right */}
-        <motion.div
-          className="flex items-center justify-end gap-4"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="bg-blue-50 p-8 rounded-lg w-[400px] shadow-md text-right">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">State Bank of India</h3>
-            <p className="text-gray-700 text-base leading-relaxed">
-              State Bank of India is an Indian multinational public sector bank and financial services statutory body headquartered in Mumbai, Maharashtra
-            </p>
-          </div>
-          <motion.img
-            src={team2}
-            alt="SBI"
-            className="w-64 h-64 object-contain"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-        </motion.div>
-
-        {/* Client 3 - Left */}
-        <motion.div
-          className="flex items-center justify-start gap-4"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.img
-            src={team3}
-            alt="Bata"
-            className="w-64 h-64 rounded-full object-contain"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-          <div className="bg-blue-50 p-8 rounded-lg w-[400px] shadow-md">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Bata Shoes</h3>
-            <p className="text-gray-700 text-base leading-relaxed">
-              The Bata Corporation is a multinational footwear, apparel and fashion accessories manufacturer and retailer of Moravian origin, headquartered in Lausanne, Switzerland.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Client 4 - Right */}
-        <motion.div
-          className="flex items-center justify-end gap-4"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="bg-blue-50 p-8 rounded-lg w-[400px] shadow-md text-right">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Bharat Petroleum</h3>
-            <p className="text-gray-700 text-base leading-relaxed">
-              Bharat Petroleum Corporation Limited is an Indian government-owned oil and gas explorer and producer, headquartered in Mumbai. It operates three refineries in Bina, Kochi and Mumbai.
-            </p>
-          </div>
-          <motion.img
-            src={team4}
-            alt="Bharat Petroleum"
-            className="w-64 h-64 object-contain"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-        </motion.div>
+          return (
+            <motion.div
+              key={index}
+              className={`flex items-center gap-4 ${isRight ? "justify-end" : "justify-start"
+                }`}
+              initial={{ opacity: 0, x: isRight ? 50 : -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {!isRight && (
+                <motion.img
+                  src={client.image}
+                  alt={client.name}
+                  className="w-64 h-64 rounded-full border-4 border-dashed border-gray-300 object-contain"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+              <div
+                className={`bg-blue-50 p-8 rounded-lg w-[400px] shadow-md ${isRight ? "text-right" : ""
+                  }`}
+              >
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  {client.name}
+                </h3>
+                <p className="text-gray-700 text-base leading-relaxed">
+                  {client.description}
+                </p>
+              </div>
+              {isRight && (
+                <motion.img
+                  src={client.image}
+                  alt={client.name}
+                  className="w-64 h-64 object-contain"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

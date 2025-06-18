@@ -1,16 +1,12 @@
-
-import image from '../assets/image1.webp'; 
-
 const About = () => (
-  <section className="py-32 px-6 bg-gray-50 " id="about">
+  <section className="py-32 px-6 bg-gray-50" id="about">
     <div className="container mx-auto flex flex-col lg:flex-row items-center gap-10">
 
-      {/* Left Side - Image */}
       <div className="w-full lg:w-1/2">
         <img
-          src= {image}
+          src="/image1.webp" 
           alt="Power Infrastructure"
-          className="rounded-lg w-full object-center mx-auto shadow-lg "
+          className="rounded-lg w-full object-center mx-auto shadow-lg"
         />
       </div>
 
@@ -21,7 +17,7 @@ const About = () => (
           30+ Years Experience <span className="text-gray-900">In Power solutions</span>
         </h2>
         <p className="text-gray-700 leading-relaxed text-justify">
-          Shafcons Electrical India (P) Ltd Head Office in Historic Agra, India, the Shafcons Electrical India (P) Ltd. is long been recognized for the competence of its engineering and the quality of its works, and the company has thrived in a rapidly changing industrial marketplace. The company has been established to provide complete power solutions (Diesel/Gasoline Genset, Transformers, LT-HT Panels, Earthing Electrodes, and Services). Our commitment to providing the very best services to ensure the highest quality of output for our clients remains our standard.
+          Shafcons Electrical India (P) Ltd, headquartered in historic Agra, India, is long recognized for its engineering excellence and quality workmanship. We specialize in complete power solutions—Diesel/Gasoline Gensets, Transformers, LT-HT Panels, Earthing Electrodes, and related services. Our unwavering commitment ensures premium service quality and client satisfaction.
         </p>
       </div>
 

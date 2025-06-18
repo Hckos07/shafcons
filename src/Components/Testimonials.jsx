@@ -4,19 +4,18 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import testimonial1 from "../assets/testimonial-1.jpg";
-import testimonial2 from "../assets/testimonial-2.jpg";
+
 
 const testimonials = [
   {
     text: "We are with shafcons for Jakson Cummins (Diesel/Gasoline)",
     client: "Indian Army",
-    image: testimonial1,
+    image: "/testimonial-1.jpg",
   },
   {
     text: "We are with shafcons for HT-LT Panels and Earthing Electrodes.",
     client: "Romsons",
-    image: testimonial2,
+    image: "/testimonial-2.jpg",
   },
 ];
 

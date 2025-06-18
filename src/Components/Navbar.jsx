@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react"; // optional: install `lucide-react` for icons
-import logo from "../assets/logo.png";
+import { Menu, X } from "lucide-react";
+
+const logo = "/logo.png";
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
@@ -22,8 +23,8 @@ const Navbar = () => {
           : "opacity-0 pointer-events-none"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between text-white relative">
-        {/* Mobile menu button */}
+      <div className="max-w-7xl mx-auto px-4 py-6.5 flex items-center justify-between text-white relative">
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -33,7 +34,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Left Navigation */}
+        {/* Desktop Left Nav */}
         <ul className="hidden md:flex space-x-4 text-base font-medium">
           <li><a href="#home" className="hover:text-blue-400 text-xl">Home</a></li>
           <li><a href="#about" className="hover:text-blue-400 text-xl">About</a></li>
@@ -42,7 +43,7 @@ const Navbar = () => {
         </ul>
 
         {/* Center Logo */}
-        <div className="text-xl font-bold tracking-wide">
+        <div className="absolute left-1/2 transform -translate-x-1/2">
           <img
             src={logo}
             alt="Logo"
@@ -50,7 +51,7 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Right Navigation */}
+        {/* Desktop Right Nav */}
         <ul className="hidden md:flex space-x-4 text-base font-medium">
           <li><a href="#clients" className="hover:text-blue-400 text-xl">Clients</a></li>
           <li><a href="#faq" className="hover:text-blue-400 text-xl">FAQ's</a></li>
@@ -60,15 +61,20 @@ const Navbar = () => {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden text-black space-y-4 py-4">
-            <a href="#home" onClick={() => setMobileMenuOpen(false)} className="text-lg">Home</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg">About</a>
-            <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-lg">Services</a>
-            <a href="#products" onClick={() => setMobileMenuOpen(false)} className="text-lg">Products</a>
-            <a href="#clients" onClick={() => setMobileMenuOpen(false)} className="text-lg">Clients</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-lg">FAQ's</a>
-            <a href="#testimonials" onClick={() => setMobileMenuOpen(false)} className="text-lg">Testimonials</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg">Contact</a>
+          <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden text-black z-40">
+            {[
+              "home", "about", "services", "products",
+              "clients", "faq", "testimonials", "contact"
+            ].map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-3 text-[18px] font-medium hover:bg-blue-100 transition-all"
+              >
+                {section === "faq" ? "FAQ's" : section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
           </div>
         )}
       </div>
