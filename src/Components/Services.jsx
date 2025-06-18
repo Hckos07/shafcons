@@ -5,15 +5,15 @@ import electrans from "../assets/elec-trans.jpg";
 const services = [
   {
     title: "Electrical Panels",
-    image: lt, 
+    image: { lt }, 
   },
   {
     title: "Electrical Transformers",
-    image: electrans,
+    image: {electrans},
   },
   {
     title: "Silent Generator",
-    image: gallery8,
+    image: { gallery8 },
   },
 ];
 
