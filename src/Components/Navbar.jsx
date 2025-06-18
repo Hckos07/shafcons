@@ -23,7 +23,7 @@ const Navbar = () => {
           : "opacity-0 pointer-events-none"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-6.5 flex items-center justify-between text-white relative">
+      <div className="max-w-7xl mx-auto px-4 py-10 flex items-center justify-between text-white relative">
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
           <button
@@ -42,12 +42,21 @@ const Navbar = () => {
           <li><a href="#products" className="hover:text-blue-400 text-xl">Products</a></li>
         </ul>
 
-        {/* Center Logo */}
-        <div className="absolute left-1/2 transform -translate-x-1/2">
+        {/* Desktop Centered Logo */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
           <img
             src={logo}
             alt="Logo"
             className="h-10 md:h-16 lg:h-20 transition-all duration-300"
+          />
+        </div>
+
+        {/* Mobile Right Logo */}
+        <div className="md:hidden absolute right-4">
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-8"
           />
         </div>
 
@@ -58,26 +67,26 @@ const Navbar = () => {
           <li><a href="#testimonials" className="hover:text-blue-400 text-xl">Testimonials</a></li>
           <li><a href="#contact" className="hover:text-blue-400 text-xl">Contact</a></li>
         </ul>
-
-        {/* Mobile Dropdown Menu */}
-        {mobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden text-black z-40">
-            {[
-              "home", "about", "services", "products",
-              "clients", "faq", "testimonials", "contact"
-            ].map((section) => (
-              <a
-                key={section}
-                href={`#${section}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-3 text-[18px] font-medium hover:bg-blue-100 transition-all"
-              >
-                {section === "faq" ? "FAQ's" : section.charAt(0).toUpperCase() + section.slice(1)}
-              </a>
-            ))}
-          </div>
-        )}
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden text-black z-40">
+          {[
+            "home", "about", "services", "products",
+            "clients", "faq", "testimonials", "contact"
+          ].map((section) => (
+            <a
+              key={section}
+              href={`#${section}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center py-3 text-[18px] font-medium hover:bg-blue-100 transition-all"
+            >
+              {section === "faq" ? "FAQ's" : section.charAt(0).toUpperCase() + section.slice(1)}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
