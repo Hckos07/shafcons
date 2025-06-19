@@ -11,9 +11,8 @@ import Navbar from './Components/Navbar';
 import Achievements from './Components/Achievements';
 import Footer from './Components/Footer';
 import Whatsappwidget from './Components/Whatsappwidget';
-import { Analytics } from "@vercel/analytics/next"
 
-function App() {
+function App() {  
   return (
     <div className="bg-gray-900 text-white">
       <Home />
@@ -28,7 +27,6 @@ function App() {
       <Contact />
       <Footer />
       <Whatsappwidget />
-      <Analytics />
     </div>
   );
 }
