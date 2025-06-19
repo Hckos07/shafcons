@@ -22,7 +22,7 @@ const productImages = [
 const ProductCarousel = () => {
   return (
     <section
-      className="py-35 bg-cover bg-center bg-no-repeat"
+      className="py-28 bg-cover bg-center bg-no-repeat"
       id="products"
       style={{ backgroundImage: `url(${galleryBackground})` }}
     >
@@ -31,7 +31,7 @@ const ProductCarousel = () => {
           PROJECT
         </h4>
         <h2 className="text-5xl font-bold text-white">Products Photo Gallery</h2>
-        <div className="h-1 w-20 bg-blue-500 mx-auto mt-4"></div>
+        <div className="h-1 w-20 bg-blue-500 mx-auto mt-4 "></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6">
